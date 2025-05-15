@@ -1,4 +1,4 @@
-import multer from 'multer';
+const multer = require('multer');
 
 const storage = multer.memoryStorage();
 
@@ -15,6 +15,9 @@ const upload = multer({
 });
 
 // Export as array handler for multiple files
-export const uploadMultiple = upload.array("files", 10); // max 5 files
+const uploadMultiple = upload.array("files", 10); // max 10 files
 
-export default upload;
+module.exports = {
+  upload,
+  uploadMultiple
+};

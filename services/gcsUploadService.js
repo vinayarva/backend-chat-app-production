@@ -1,5 +1,6 @@
-import { Storage } from "@google-cloud/storage";
-import { v4 as uuidv4 } from "uuid";
+const { Storage } = require("@google-cloud/storage");
+const { v4: uuidv4 } = require("uuid");
+
 
 // Initialize Google Cloud Storage client
 const storage = new Storage({
@@ -9,7 +10,7 @@ const bucketName = 'ocr_result-data';
 const bucket = storage.bucket(bucketName);
 
 // function to upload a file to Google Cloud Storage
-export const uploadFileToGCS = async (file) => {
+const uploadFileToGCS = async (file) => {
   try {
     if (!file || !file.buffer) {
       throw new Error("File buffer is empty");
@@ -43,4 +44,4 @@ export const uploadFileToGCS = async (file) => {
   }
 };
 
-export default uploadFileToGCS;
+module.exports =  uploadFileToGCS;

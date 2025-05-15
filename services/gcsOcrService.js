@@ -1,5 +1,6 @@
-import { ImageAnnotatorClient } from "@google-cloud/vision";
-import { v4 as uuidv4 } from "uuid";
+const { ImageAnnotatorClient } = require("@google-cloud/vision");
+const { v4: uuidv4 } = require("uuid");
+
 
 const client = new ImageAnnotatorClient({
   keyFilename: process.env.GOOGLE_APPLICATION_CREDENTIALS,
@@ -46,4 +47,4 @@ const performOcrOnGcsPdf = async (inputFilelink) => {
   }
 };
 
-export default performOcrOnGcsPdf;
+module.exports = performOcrOnGcsPdf;
